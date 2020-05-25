@@ -1,0 +1,14 @@
+<header>
+  <nav>
+           <a href="/">Home</a>
+           <a href="/about-us">About Us</a>
+           <%if(!loggedIn){%>
+              <a href="/sign-up">Sign Up</a>
+              <a href="/sign-in">Sign In</a>
+           <%} else{%>
+
+             <a href="/logout">logout</a>
+             <a href="/profile">Profile</a>
+           <%}%>
+  </nav>
+</header>
