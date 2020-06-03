@@ -1,0 +1,13 @@
+.personh1,.personh2{
+    text-align: center;
+}
+.personh1{
+    color: #4ca1af;
+}
+
+.personimg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
