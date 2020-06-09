@@ -1,0 +1,9 @@
+.form-wrapper{
+    margin: 1.5em;
+}
+
+#submit{
+    background-color: #4ca1af;
+    width: 50%;
+    color: white;
+}
