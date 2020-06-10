@@ -10,7 +10,7 @@ const {loginSchema,registerSchema} = require("../validation_schemas/membership")
 
 
 async function validateLogin(req,res,next){
-    const errors = {}
+    const errors = {};
     try {
         await loginSchema.validateAsync(req.body);
         next();
@@ -19,7 +19,7 @@ async function validateLogin(req,res,next){
         for (let detail of e.details){
             errors[detail.context.label] = detail.message
         }
-        res.render("sign_in",{
+        res.render("sign-in",{
             errors,
             loggedIn : false,
             username : req.body.username
@@ -54,7 +54,7 @@ async function addUser(req,res) {
         else{
             errors.other = e;
         }
-        res.render('sign_up',{
+        res.render('sign-up',{
             errors,
             loggedIn : false,
             username : req.body.username,
@@ -65,21 +65,24 @@ async function addUser(req,res) {
 }
 
 async function showProfile(req,res) {
-    if (req.isAuthenticated()) {
-        let balance = await web3.eth.getBalance(req.user.publicKey);
-        balance = web3.utils.fromWei(balance, 'ether');
-        res.render('profile', {
-            balance, username: req.user.username, loggedIn: true
-        });
-    }
-    else{
-        res.redirect("/");
+    try {
+        if (req.isAuthenticated()) {
+            let balance = await web3.eth.getBalance(req.user.publicKey);
+            balance = web3.utils.fromWei(balance, 'ether');
+            res.render('profile', {
+                balance, username: req.user.username, loggedIn: true
+            });
+        } else {
+            res.redirect("/");
+        }
+    }catch(e){
+        console.log(e);
     }
 }
 
 router.get("/sign-up",function(req,res){
     if (!req.isAuthenticated())
-        res.render("sign_up",{loggedIn : false});
+        res.render("sign-up",{loggedIn : false});
     else
         res.redirect("/");
 });
@@ -88,7 +91,7 @@ router.post("/sign-up",addUser);
 
 router.get("/sign-in",function (req,res) {
     if (!req.isAuthenticated())
-       res.render("sign_in",{loggedIn:false});
+       res.render("sign-in",{loggedIn:false});
     else
        res.redirect("/");
 });
