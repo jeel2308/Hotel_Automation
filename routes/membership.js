@@ -19,7 +19,7 @@ async function validateLogin(req,res,next){
         for (let detail of e.details){
             errors[detail.context.label] = detail.message
         }
-        res.render("sign_in",{
+        res.render("sign-in",{
             errors,
             loggedIn : false,
             username : req.body.username
@@ -54,7 +54,7 @@ async function addUser(req,res) {
         else{
             errors.other = e;
         }
-        res.render('sign_up',{
+        res.render('sign-up',{
             errors,
             loggedIn : false,
             username : req.body.username,
@@ -79,7 +79,7 @@ async function showProfile(req,res) {
 
 router.get("/sign-up",function(req,res){
     if (!req.isAuthenticated())
-        res.render("sign_up",{loggedIn : false});
+        res.render("sign-up",{loggedIn : false});
     else
         res.redirect("/");
 });
@@ -88,7 +88,7 @@ router.post("/sign-up",addUser);
 
 router.get("/sign-in",function (req,res) {
     if (!req.isAuthenticated())
-       res.render("sign_in",{loggedIn:false});
+       res.render("sign-in",{loggedIn:false});
     else
        res.redirect("/");
 });

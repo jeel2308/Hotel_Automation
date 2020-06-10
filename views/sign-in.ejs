@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%-include('partials/headcontent.ejs')%>
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <%-include('partials/header.ejs')%>
+    <br><br>
+    <%if(success_msg!==''){%>
+       <h1><%=success_msg%></h1>
+    <%}%>
+    <%if(error!==''){%>
+       <h1><%=error%></h1>
+    <%}%>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4">
+          <span>&nbsp</span>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 form-wrapper">
+          <h2>Login to access facilities</h2>
+          <form method="post" action="/sign-in">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter a valid username"
+               value="<%=typeof username==='undefined'?'':username%>"/>
+                <%if (typeof errors!=='undefined' && errors.username){%>
+                  <h1><%=errors.username%></h1>
+                <%}%>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id ="password" name="password" />
+              <%if (typeof errors!=='undefined' && errors.password){%>
+                <h1><%=errors.password%></h1>
+              <%}%>
+            </div>
+              <button type="submit" class="btn btn-lg" id="submit">Log In</button>
+          </form>
+        </div>
+        <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4">
+          <span>&nbsp</span>
+        </div>
+      </div>
+    </div>
+    <%-include('partials/footer.ejs')%>
+  </body>
+</html>
