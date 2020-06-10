@@ -25,7 +25,7 @@
           <form method="post" action="/sign-in">
             <div class="form-group">
               <label for="username">Username</label>
-              <input type="text" class="form-control" id="username" placeholder="Enter a valid username"
+              <input type="text" class="form-control" id="username" placeholder="Enter a valid username" name="username"
                value="<%=typeof username==='undefined'?'':username%>"/>
                 <%if (typeof errors!=='undefined' && errors.username){%>
                   <h1><%=errors.username%></h1>
