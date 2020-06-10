@@ -10,7 +10,7 @@ const {loginSchema,registerSchema} = require("../validation_schemas/membership")
 
 
 async function validateLogin(req,res,next){
-    const errors = {}
+    const errors = {};
     try {
         await loginSchema.validateAsync(req.body);
         next();
@@ -65,15 +65,18 @@ async function addUser(req,res) {
 }
 
 async function showProfile(req,res) {
-    if (req.isAuthenticated()) {
-        let balance = await web3.eth.getBalance(req.user.publicKey);
-        balance = web3.utils.fromWei(balance, 'ether');
-        res.render('profile', {
-            balance, username: req.user.username, loggedIn: true
-        });
-    }
-    else{
-        res.redirect("/");
+    try {
+        if (req.isAuthenticated()) {
+            let balance = await web3.eth.getBalance(req.user.publicKey);
+            balance = web3.utils.fromWei(balance, 'ether');
+            res.render('profile', {
+                balance, username: req.user.username, loggedIn: true
+            });
+        } else {
+            res.redirect("/");
+        }
+    }catch(e){
+        console.log(e);
     }
 }
 
