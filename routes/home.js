@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.get("/home",function(req,res){
+router.get("/",function(req,res){
     const loggedIn = !!req.isAuthenticated();
     res.render("home",{loggedIn});
 });

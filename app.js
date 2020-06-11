@@ -7,7 +7,7 @@ const session = require("express-session");
 const passport = require('passport');
 const flash = require('connect-flash');
 
-const url = "mongodb://localhost/sri";
+const url = encodeURI("mongodb+srv://Jeel:Jeel@@2308@cluster0-erkx1.mongodb.net/test?retryWrites=true&w=majority");
 mongoose.connect(url, {
     useNewUrlParser : true,
     useUnifiedTopology : true

@@ -67,10 +67,10 @@ async function addUser(req,res) {
 async function showProfile(req,res) {
     try {
         if (req.isAuthenticated()) {
-            let balance = await web3.eth.getBalance(req.user.publicKey);
-            balance = web3.utils.fromWei(balance, 'ether');
+            // let balance = await web3.eth.getBalance(req.user.publicKey);
+            // balance = web3.utils.fromWei(balance, 'ether');
             res.render('profile', {
-                balance, username: req.user.username, loggedIn: true
+                balance:100, username: req.user.username, loggedIn: true
             });
         } else {
             res.redirect("/");
