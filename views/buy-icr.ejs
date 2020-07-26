@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buy ICR</title>
+</head>
+<body>
+  <h1>Hello there</h1>
+  <form method="post" id="buy-icr-form" novalidate>
+      <label for="buy-icr">Buy ICR</label>
+      <input type="number" id="buy-icr" />
+      <div id="buy-icr-err"></div>
+      <button type="button" id="buy-icr-btn">Buy</button>
+  </form>
+  <script src="https://checkout.stripe.com/checkout.js" defer></script>
+  <script>
+      const publicKey = '<%=publicKey%>';
+  </script>
+  <script src="js/buy-icr.js"></script>
+</body>
+</html>
