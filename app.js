@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const homeRoutes = require("./routes/home");
 const membershipRoutes = require("./routes/membership");
+const paymentRoute = require("./routes/payment");
 const session = require("express-session");
 const passport = require('passport');
 const flash = require('connect-flash');
@@ -37,9 +38,11 @@ app.use(function (req,res,next) {
 });
 
 app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 app.use(express.static("assets"));
 app.use(homeRoutes);
 app.use(membershipRoutes);
+app.use(paymentRoute);
 
 app.listen(3000,()=>{
     console.log("server has started on port 3000");
