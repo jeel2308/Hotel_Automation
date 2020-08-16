@@ -7,8 +7,67 @@
   </head>
   <body>
     <%-include('partials/header')%>
-    <h1>UserName: <%=username%></h1>
-    <h1>Balance: <%=balance%> ICR</h1>
+    <div class="container">
+      <div class="row wrapper" style="border-bottom: #2C3E50 solid 2px;">
+        &nbsp;&nbsp;&nbsp;<h1 id="head">Profile and Status</h1>
+      </div>
+      <div class="row wrapper">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="label">Name:</h2>
+        </div>
+        <!--<div class="col-xs-6 col-sm-6 col-md-6 col-lg-5">
+          <h2><%=username%></h2>
+        </div>-->
+      </div>
+      <div class="row wrapper">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="label">Username:</h2>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-5">
+          <h2><%=username%></h2>
+        </div>
+      </div>
+      <div class="row wrapper">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="label">Email:</h2>
+        </div>
+        <!--<div class="col-xs-6 col-sm-6 col-md-6 col-lg-5">
+          <h2><%=username%></h2>
+        </div>-->
+      </div>
+      <div class="row wrapper">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="label">Date & Time of booking:</h2>
+        </div>
+        <!--<div class="col-xs-6 col-sm-6 col-md-6 col-lg-5">
+          <h2><%=username%></h2>
+        </div>-->
+      </div>
+      <div class="row wrapper">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="label">Balance:</h2>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-5">
+          <h2><%=balance%> ICR</h2>
+        </div>
+      </div>
+      <div class="row wrapper">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="label">Bill amount payed:</h2>
+        </div>
+        <!--<div class="col-xs-6 col-sm-6 col-md-6 col-lg-5">
+          <h2><%=balance%> ICR</h2>
+        </div>-->
+      </div>
+      <div class="row wrapper">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="label">Bill amount due:</h2>
+        </div>
+        <!--<div class="col-xs-6 col-sm-6 col-md-6 col-lg-5">
+          <h2><%=balance%> ICR</h2>
+        </div>-->
+      </div>
+    </div>
     <%-include('partials/footer.ejs')%>
   </body>
 </html>
