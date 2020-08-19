@@ -18,20 +18,20 @@ router.get("/buy-icr",function(req,res){
 });
 
 router.post("/buy-icr",async function(req,res){
-   try{
-       console.log(req.body);
-       const chargePromise = stripe.charges.create({
-          amount : req.body.price,
-          source : req.body.id,
-          currency : 'inr'
-       });
-       await chargePromise;
-       await mintICR(owner,req.user.publicKey,req.body.price/100);
-       res.json({message : 'Transfered Successfully'});
-   }
-   catch(e){
-       res.sendStatus(500).end();
-   }
+    try{
+        console.log(req.body);
+        const chargePromise = stripe.charges.create({
+            amount : req.body.price,
+            source : req.body.id,
+            currency : 'inr'
+        });
+        await chargePromise;
+        await mintICR(owner,req.user.publicKey,req.body.price/100);
+        res.json({message : 'Transfered Successfully'});
+    }
+    catch(e){
+        res.sendStatus(500).end();
+    }
 });
 
 router.get("/book-room",function(req,res){
@@ -43,20 +43,20 @@ router.get("/book-room",function(req,res){
 });
 
 router.post("/book-room",async function(req,res){
-   const {price} = req.body;
-   const {publicKey} = req.user;
-   try{
-       const balance = await balanceOf(publicKey);
-       if(balance>=price){
-           await transfer(publicKey,hotelAcc,price);
-           res.json({success : "Room Booked"});
-       }else{
-           res.json({warning : "Insufficient Balance"});
-       }
-   }
-   catch(e){
-       res.json({warning : e.message});
-   }
+    const {price} = req.body;
+    const {publicKey} = req.user;
+    try{
+        const balance = await balanceOf(publicKey);
+        if(balance>=price){
+            await transfer(publicKey,hotelAcc,price);
+            res.json({success : "Room Booked"});
+        }else{
+            res.json({warning : "Insufficient Balance"});
+        }
+    }
+    catch(e){
+        res.json({warning : e.message});
+    }
 
 });
 

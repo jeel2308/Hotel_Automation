@@ -109,4 +109,6 @@ dist/
 tmp/
 temp/
 
+# Python Cache
+__pycache__/
 # End of https://www.gitignore.io/api/node
