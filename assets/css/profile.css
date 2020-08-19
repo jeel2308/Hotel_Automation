@@ -1,0 +1,16 @@
+.label
+{
+    color: #2C3E50;
+    font-weight: bolder;
+}
+
+.wrapper
+{
+    margin: 1.5em;
+}
+
+#head
+{
+    color: crimson;
+    font-weight: 700;
+}
