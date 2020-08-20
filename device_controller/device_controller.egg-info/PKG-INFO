@@ -1,12 +1,50 @@
-Metadata-Version: 1.1
+Metadata-Version: 2.1
 Name: device-controller
 Version: 0.1
-Summary: Hotel Device Controller Daemon
+Summary: Hotel Device Controller Server
 Home-page: UNKNOWN
 Author: Niraj Kamdar
-Author-email: UNKNOWN
 License: MIT
-Description: UNKNOWN
+Description: # Device Controller
+        
+        This is a REST API server for Raspberry PI microcontroller which provides simple interface to control devices attached to the microcontroller.
+        
+        ## Getting Started
+        
+        These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+        
+        ### Prerequisites
+        
+        You will need `python 3.x` installed
+        
+        ### Installing
+        
+        After cloning/downloading this repository you can install device-controller python package using following commands.
+        
+        ```console
+        python setup.py install
+        ```
+        
+        ### Running
+        
+        If you have path variables setup correctly, you can run this API server by `controller` command. If you want to run it as daemon then use `controller &` command.
+        
+        ## Deployment
+        
+        These instructions will help you deploy this API server to actual Raspberry Pi. You need to install `gpiozero` package which provides utility to control GPIO pins of the board.
+        
+        First, update your repositories list:
+        ```console
+        pi@raspberrypi:~$ sudo apt update
+        ```
+        Then install the package for Python 3:
+        ```console
+        pi@raspberrypi:~$ sudo apt install python3-gpiozero
+        ```
+        
+        Now, you can install device-controller as stated above. You can also run this program at startup automatically using `crontab` utility.
+        
+        
 Keywords: room,device,controller
 Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
@@ -20,3 +58,4 @@ Classifier: Programming Language :: Python :: 3.5
 Classifier: Programming Language :: Python :: 3.6
 Classifier: Programming Language :: Python :: 3.7
 Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown

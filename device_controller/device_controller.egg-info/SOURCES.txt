@@ -1,5 +1,8 @@
 README.md
 setup.py
+controller/__init__.py
+controller/bottle.py
+controller/gpio.py
 device_controller.egg-info/PKG-INFO
 device_controller.egg-info/SOURCES.txt
 device_controller.egg-info/dependency_links.txt
