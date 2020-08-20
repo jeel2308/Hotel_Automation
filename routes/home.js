@@ -10,4 +10,9 @@ router.get("/about-us",function(req,res){
     res.render("about-us",{loggedIn});
 });
 
+router.get("/appliances",function(req,res){
+    const loggedIn = !!req.isAuthenticated();
+    res.render("appliances",{loggedIn});
+});
+
 module.exports = router;

@@ -1,0 +1,20 @@
+#form-head
+{
+    color: crimson;
+}
+
+#form-wrap
+{
+    margin-top: 10em;
+    margin-bottom: 10em;
+    padding: 2em;
+    border: 3px solid black;
+    border-radius: 2px;
+}
+
+#buy-icr-btn
+{
+    background-color: #4ca1af;
+    width: 50%;
+    color: white;
+}
