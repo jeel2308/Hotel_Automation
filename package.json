@@ -7,15 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jeel2308/Hotel_Automation.git"
-  },
+  
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jeel2308/Hotel_Automation/issues"
-  },
-  "homepage": "https://github.com/jeel2308/Hotel_Automation#readme",
+
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "bcryptjs": "^2.4.3",

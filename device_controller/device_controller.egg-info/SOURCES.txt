@@ -1,0 +1,7 @@
+README.md
+setup.py
+device_controller.egg-info/PKG-INFO
+device_controller.egg-info/SOURCES.txt
+device_controller.egg-info/dependency_links.txt
+device_controller.egg-info/entry_points.txt
+device_controller.egg-info/top_level.txt

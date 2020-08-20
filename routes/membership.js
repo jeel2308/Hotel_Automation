@@ -71,8 +71,8 @@ async function addUser(req,res) {
 async function showProfile(req,res) {
     try {
         if (req.isAuthenticated()) {
-            // let balance = await balanceOf(req.user.publicKey);
-            let balance = 5;
+            let balance = await balanceOf(req.user.publicKey);
+            // let balance = 5;
             res.render('profile', {
                 balance, username: req.user.username, loggedIn: true
             });

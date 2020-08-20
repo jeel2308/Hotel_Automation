@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: device-controller
+Version: 0.1
+Summary: Hotel Device Controller Daemon
+Home-page: UNKNOWN
+Author: Niraj Kamdar
+Author-email: UNKNOWN
+License: MIT
+Description: UNKNOWN
+Keywords: room,device,controller
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Server
+Classifier: Natural Language :: English
+Classifier: Operating System :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8

@@ -6,6 +6,7 @@ const owner = process.env.OWNER;
 const hotelAcc = process.env.HOTEL;
 const {mintICR,balanceOf,transfer} = require('../connect-blockchain/index');
 const stripe = require('stripe')(privateKey);
+const Booking = require('../models/Booking');
 
 router.get("/buy-icr",function(req,res){
     if(req.isAuthenticated()){
@@ -43,13 +44,20 @@ router.get("/book-room",function(req,res){
 });
 
 router.post("/book-room",async function(req,res){
-    const {price} = req.body;
+
+    const {price,roomType} = req.body;
     const {publicKey} = req.user;
     try{
         const balance = await balanceOf(publicKey);
         if(balance>=price){
             await transfer(publicKey,hotelAcc,price);
-            res.json({success : "Room Booked"});
+            const roomBooking = {
+                username : req.user.username,
+                roomType
+            }
+            const newRoom = new Booking(roomBooking);
+            await newRoom.save();
+            res.redirect('/rooms');
         }else{
             res.json({warning : "Insufficient Balance"});
         }
@@ -58,6 +66,24 @@ router.post("/book-room",async function(req,res){
         res.json({warning : e.message});
     }
 
+});
+
+router.get("/rooms",async function(req,res){
+    console.log("redirected");
+    const roomPromise = new Promise(function(resolve,reject){
+           Booking.find({username : req.user.username},function(err,rooms){
+               if(err) reject(err);
+               else resolve(rooms);
+           });
+        });
+    try{
+        const rooms = await roomPromise;
+        const roomTypes = rooms.map((room)=>room.roomType);
+        res.render("rooms",{roomTypes});
+    }
+    catch(e){
+        console.log(e);
+    }
 });
 
 module.exports = router;
