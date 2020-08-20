@@ -1,12 +1,17 @@
 from setuptools import setup, find_packages
 
+with open("README.md", "r", encoding="utf-8") as f:
+    readme = f.read()
+
 setup(
     name="device-controller",
     version="0.1",
-    description="Hotel Device Controller Daemon",
+    description="Hotel Device Controller Server",
+    long_description=readme,
+    long_description_content_type="text/markdown",
     author="Niraj Kamdar",
     packages=find_packages(),
-    entry_points={"console_scripts": ["controller = main:start",],},
+    entry_points={"console_scripts": ["controller = controller:start"]},
     license="MIT",
     keywords=["room", "device", "controller"],
     classifiers=[

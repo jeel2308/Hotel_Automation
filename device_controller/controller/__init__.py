@@ -1,6 +1,10 @@
-from bottle import route, run, abort, response
-from gpio import LED, PWMLED
+import argparse
 import json
+import textwrap
+import sys
+
+from .bottle import route, run, abort, response
+from .gpio import LED, PWMLED
 
 switches = {
     1: LED("GPIO5"),
@@ -49,9 +53,31 @@ def device_stats():
     return body
 
 
-def start(debug=False):
+def start():
     """ Starts device controller API server """
-    run(host="localhost", port=8080, debug=debug)
+    parser = argparse.ArgumentParser(
+        prog="controller",
+        description=textwrap.dedent(
+            """
+            This is a REST API server for Raspberry PI microcontroller 
+            which provides simple interface to control devices 
+            attached to the microcontroller.
+            """
+        ),
+    )
+    parser.add_argument(
+        "-p",
+        "--port",
+        action="store",
+        default=8080,
+        type=int,
+        help="Specify port no. for the server",
+    )
+    parser.add_argument(
+        "-d", "--debug", action="store_true", help="Run server in debug mode."
+    )
+    args = parser.parse_args(sys.argv[1:])
+    run(host="localhost", port=args.port, debug=args.debug)
 
 
 if __name__ == "__main__":
