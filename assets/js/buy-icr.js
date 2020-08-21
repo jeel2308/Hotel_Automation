@@ -1,6 +1,7 @@
 const buyIcrBtn = document.getElementById("buy-icr-btn");
 const buyIcrField = document.getElementById("buy-icr");
 const buyIcrErr = document.getElementById("buy-icr-err");
+const buyIcrForm = document.getElementById("buy-icr-form");
 
 buyIcrBtn.disabled = true;
 
@@ -27,6 +28,8 @@ buyIcrField.addEventListener('input',function(){
     buyIcrBtn.disabled = !!err;
 });
 
+
+
 buyIcrBtn.addEventListener('click',function(){
     async function handleToken(token){
         let message = "";
@@ -42,10 +45,9 @@ buyIcrBtn.addEventListener('click',function(){
                     price : Number(buyIcrField.value)*100
                 })
             });
-            let res = await buyIcrPromise;
-            res = await res.json();
-            message = res.message;
-            console.log(message);
+            await buyIcrPromise;
+            console.log("done");
+            window.location.href="http://localhost:3000/profile";
         }
         catch(e){
             console.log(e);
