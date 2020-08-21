@@ -1,25 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%-include('partials/headcontent.ejs')%>
     <title>Book Room</title>
-    <link rel="stylesheet" href="css/book-rooms.css" />
+    <link rel="stylesheet" href="css/rooms.css" />
 </head>
 <body>
-  <h1>Current Booking</h1>
-  <%if (!roomTypes.length){%>
-      <h1>No rooms are booked</h1>
- <% }else{%>
-      <%roomTypes.forEach(function(room,index){%>
-      <span><%=index + 1%></span>
-      <span><%=room%></span>
-      <a href="/appliances">Room Controls</a>
-      <%})%>
- <%}%>
-
+    <%-include('partials/header.ejs')%>
+    <div class="container">
+        <h1 style="color:#2C3E50;">Current Booking</h1>
+        <hr style="border-top: 4px solid black;">
+        <%if (!roomTypes.length){%>
+            <h2 style="color: crimson;">No rooms are booked</h2>
+        <% }else{%>
+            <%roomTypes.forEach(function(room,index){%>
+            <div style="display: block;"></div>
+            <span style="font-weight: bold; font-size: 2.5em; color: crimson;"><%=index + 1%></span>
+            <span style="font-weight: bold; font-size: 2.5em; color: crimson;"><%=room%></span>
+            <a href="/appliances" style="font-size: 2.5em; text-decoration: none; margin-left: 2em; color: #4CA1AF;">Go to room controls --></a>
+            <%})%>
+        <%}%>
+    </div>
+    <br><br><br>
+    <%-include('partials/footer.ejs')%>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 
 </html>
