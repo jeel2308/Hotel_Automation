@@ -1,0 +1,13 @@
+#room_container {
+    display: flex;
+}
+
+.room {
+    display: flex;
+    flex-direction: column;
+}
+
+.room img{
+    height : 200px;
+    width : 300px;
+}

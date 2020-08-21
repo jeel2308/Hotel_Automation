@@ -4,8 +4,11 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 require('../config/passport_config');
-const Web3 = require('web3');
-const web3 = new Web3("HTTP://127.0.0.1:7545");
+require('dotenv').config();
+const owner = process.env.OWNER;
+const {addEthereumUser,balanceOf} = require("../connect-blockchain/index");
+// const Web3 = require('web3');
+// const web3 = new Web3("HTTP://127.0.0.1:7545");
 const {loginSchema,registerSchema} = require("../validation_schemas/membership");
 
 
@@ -39,7 +42,8 @@ async function addUser(req,res) {
         value.privateKey = await bcrypt.hash(value.privateKey,pKeySalt);
         const user = new User(value);
         await user.save();
-        req.flash("success_msg","You are logged in");
+        await addEthereumUser(owner,value.publicKey);
+        req.flash("success_msg","You are registered");
         res.redirect("/sign-in");
     }
     catch(e){
@@ -67,13 +71,13 @@ async function addUser(req,res) {
 async function showProfile(req,res) {
     try {
         if (req.isAuthenticated()) {
-            let balance = await web3.eth.getBalance(req.user.publicKey);
-            balance = web3.utils.fromWei(balance, 'ether');
+            let balance = await balanceOf(req.user.publicKey);
+            // let balance = 5;
             res.render('profile', {
-                balance, username: req.user.username, loggedIn: true
+                balance, username: req.user.username, loggedIn: true,email : req.user.email
             });
         } else {
-            res.redirect("/");
+            res.redirect("/sign-in");
         }
     }catch(e){
         console.log(e);
@@ -91,9 +95,9 @@ router.post("/sign-up",addUser);
 
 router.get("/sign-in",function (req,res) {
     if (!req.isAuthenticated())
-       res.render("sign-in",{loggedIn:false});
+        res.render("sign-in",{loggedIn:false});
     else
-       res.redirect("/");
+        res.redirect("/");
 });
 
 router.post("/sign-in",validateLogin,function (req,res,next){
@@ -102,8 +106,7 @@ router.post("/sign-in",validateLogin,function (req,res,next){
         failureRedirect : '/sign-in',
         failureFlash : true
     })(req, res, next);
-  }
-);
+});
 
 router.get("/logout",function (req,res) {
     if (req.isAuthenticated()) {
