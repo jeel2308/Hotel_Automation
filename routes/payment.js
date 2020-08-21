@@ -27,7 +27,7 @@ router.post("/buy-icr",async function(req,res){
             currency : 'inr'
         });
         await chargePromise;
-        // await mintICR(owner,req.user.publicKey,req.body.price/100);
+        await mintICR(owner,req.user.publicKey,req.body.price/100);
         res.json({message : 'Transfered Successfully'});
     }
     catch(e){
@@ -50,10 +50,10 @@ router.post("/book-room",async function(req,res){
         const {price, roomType} = req.body;
         const {publicKey} = req.user;
         try {
-            // const balance = await balanceOf(publicKey);
-            const balance = 5;
+            const balance = await balanceOf(publicKey);
+            // const balance = 5;
             if (balance >= price) {
-                // await transfer(publicKey, hotelAcc, price);
+                await transfer(publicKey, hotelAcc, price);
                 const roomBooking = {
                     username: req.user.username,
                     roomType
@@ -95,17 +95,17 @@ router.get("/rooms",async function(req,res){
 
 router.get("/switch/:id",async function(req,res){
     if(req.isAuthenticated()) {
-        // const toggleSwitchPromise = fetch('http://localhost:8080/switch/' + req.params.id);
-        // try {
-        //     const statePromise = await toggleSwitchPromise;
-        //     const state = await statePromise.json();
-        //     console.log("switch " + req.params.id + " is " + (state.switch[req.params.id] ? "ON" : "OFF"));
-        // } catch (e) {
-        //     console.log(e);
-        // } finally {
-        //     res.send("DONE");
-        // }
-        res.send("DONE");
+        const toggleSwitchPromise = fetch('http://localhost:8080/switch/' + req.params.id);
+        try {
+            const statePromise = await toggleSwitchPromise;
+            const state = await statePromise.json();
+            console.log("switch " + req.params.id + " is " + (state.switch[req.params.id] ? "ON" : "OFF"));
+        } catch (e) {
+            console.log(e);
+        } finally {
+            res.send("DONE");
+        }
+        // res.send("DONE");
     }else{
         res.redirect("/sign-in");
     }
@@ -113,17 +113,17 @@ router.get("/switch/:id",async function(req,res){
 
 router.get("/fan/1/:level",async function(req,res){
     if(req.isAuthenticated()) {
-        // const toggleFanPromise = fetch('http://localhost:8080/fan/1/' + req.params.level);
-        // try {
-        //     const statePromise = await toggleFanPromise;
-        //     const state = await statePromise.json();
-        //     console.log(" fan level is " + state.fan['1']);
-        // } catch (e) {
-        //     console.log(e);
-        // } finally {
-        //     res.send("DONE");
-        // }
-        res.send("DONE");
+        const toggleFanPromise = fetch('http://localhost:8080/fan/1/' + req.params.level);
+        try {
+            const statePromise = await toggleFanPromise;
+            const state = await statePromise.json();
+            console.log(" fan level is " + state.fan['1']);
+        } catch (e) {
+            console.log(e);
+        } finally {
+            res.send("DONE");
+        }
+        // res.send("DONE");
     }else{
         res.redirect("/sign-in");
     }
