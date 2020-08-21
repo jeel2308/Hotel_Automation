@@ -49,7 +49,7 @@ buyIcrBtn.addEventListener('click',function(){
         }
         catch(e){
             console.log(e);
-            message = e.message;
+            // message = e.message;
         }
         finally{
             // console.log(message);
