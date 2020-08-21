@@ -9,10 +9,10 @@
     <%-include('partials/header.ejs')%>
     <br><br>
     <%if(success_msg!==''){%>
-       <h1><%=success_msg%></h1>
+       <h6 style="color: crimson;"><%=success_msg%></h6>
     <%}%>
     <%if(error!==''){%>
-       <h1><%=error%></h1>
+       <h6 style="color: crimson;"><%=error%></h6>
     <%}%>
     
     <div class="container">
@@ -28,14 +28,14 @@
               <input type="text" class="form-control" id="username" placeholder="Enter a valid username" name="username"
                value="<%=typeof username==='undefined'?'':username%>"/>
                 <%if (typeof errors!=='undefined' && errors.username){%>
-                  <h1><%=errors.username%></h1>
+                  <h6 style="color: crimson;"><%=errors.username%></h6>
                 <%}%>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
               <input type="password" class="form-control" id ="password" name="password" />
               <%if (typeof errors!=='undefined' && errors.password){%>
-                <h1><%=errors.password%></h1>
+                <h6 style="color: crimson;"><%=errors.password%></h6>
               <%}%>
             </div>
               <button type="submit" class="btn btn-lg" id="submit">Log In</button>

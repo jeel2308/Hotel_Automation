@@ -37,7 +37,9 @@ router.post("/buy-icr",async function(req,res){
 
 router.get("/book-room",function(req,res){
     if(req.isAuthenticated()){
-        res.render("book-rooms");
+        res.render("book-rooms",{
+            publicKey,loggedIn: true
+        });
     }else{
         res.redirect("/sign-in");
     }
@@ -82,7 +84,7 @@ router.get("/rooms",async function(req,res){
         try {
             const rooms = await roomPromise;
             const roomTypes = rooms.map((room) => room.roomType);
-            res.render("rooms", {roomTypes});
+            res.render("rooms", {roomTypes,publicKey,loggedIn: true});
         } catch (e) {
             console.log(e);
         }

@@ -9,11 +9,11 @@
     <%-include('partials/header.ejs')%>
     <br><br>
     <%if(typeof errors!=='undefined' && errors.message){%>
-          <h1><%=errors.message%></h1>
+          <h4 style="color: crimson;"><%=errors.message%></h4>
     <%}%>
 
     <%if(typeof errors!=='undefined' && errors.other){%>
-      <h1><%=errors.other%></h1>
+      <h4 style="color: crimson;"><%=errors.other%></h4>
     <%}%>
     <div class="container">
       <div class="row">
@@ -27,14 +27,14 @@
               <label for="name">Name</label>
               <input type="text" id="name" class="form-control" name="username" value="<%=typeof username==='undefined'?'':username%>" />
               <%if(typeof errors!=='undefined' && errors.username){%>
-                <h1><%=errors.username%></h1>
+                <h4 style="color: crimson;"><%=errors.username%></h4>
               <%}%>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
               <input type="email" name="email" class="form-control" value="<%=typeof email==='undefined'?'':email%>"/> </label>  
                 <%if(typeof errors!=='undefined' && errors.email){%>
-                  <h1><%=errors.email%></h1>
+                  <h4 style="color: crimson;"><%=errors.email%></h4>
                 <%}%>
             </div>
             <div class="form-group">
@@ -42,14 +42,14 @@
               <input type="password" class="form-control" id="password" name="password" />
               
               <%if(typeof errors!=='undefined' && errors.password){%>
-                <h1><%=errors.password%></h1>
+                <h4 style="color: crimson;"><%=errors.password%></h4>
               <%}%>
             </div>
             <div class="form-group">
               <label for="publicKey">Public Key</label>
               <input type="text" id="publicKey" name="publicKey" class="form-control" value="<%=typeof publicKey==='undefined'?'':publicKey%>"/>
               <%if(typeof errors!=='undefined' && errors.publicKey){%>
-                <h1><%=errors.publicKey%></h1>
+                <h4 style="color: crimson;"><%=errors.publicKey%></h4>
               <%}%>
             </div>
             <div class="form-group">
@@ -57,7 +57,7 @@
               <input type="password" class="form-control" id="privateKey" name="privateKey" />
               
               <%if(typeof errors!=='undefined' && errors.privateKey){%>
-                <h1><%=errors.privateKey%></h1>
+                <h4 style="color: crimson;"><%=errors.privateKey%></h4>
               <%}%>
             </div>
             <button type="submit" class="btn btn-lg" id="submit">Sign Up</button>
