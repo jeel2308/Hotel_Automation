@@ -42,7 +42,7 @@ async function addUser(req,res) {
         value.privateKey = await bcrypt.hash(value.privateKey,pKeySalt);
         const user = new User(value);
         await user.save();
-        await addEthereumUser(owner,value.publicKey);
+        // await addEthereumUser(owner,value.publicKey);
         req.flash("success_msg","You are registered");
         res.redirect("/sign-in");
     }
@@ -74,10 +74,10 @@ async function showProfile(req,res) {
             // let balance = await balanceOf(req.user.publicKey);
             let balance = 5;
             res.render('profile', {
-                balance, username: req.user.username, loggedIn: true
+                balance, username: req.user.username, loggedIn: true,email : req.user.email
             });
         } else {
-            res.redirect("/");
+            res.redirect("/sign-in");
         }
     }catch(e){
         console.log(e);
@@ -95,9 +95,9 @@ router.post("/sign-up",addUser);
 
 router.get("/sign-in",function (req,res) {
     if (!req.isAuthenticated())
-       res.render("sign-in",{loggedIn:false});
+        res.render("sign-in",{loggedIn:false});
     else
-       res.redirect("/");
+        res.redirect("/");
 });
 
 router.post("/sign-in",validateLogin,function (req,res,next){
@@ -106,8 +106,7 @@ router.post("/sign-in",validateLogin,function (req,res,next){
         failureRedirect : '/sign-in',
         failureFlash : true
     })(req, res, next);
-  }
-);
+});
 
 router.get("/logout",function (req,res) {
     if (req.isAuthenticated()) {
