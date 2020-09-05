@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/book-rooms-form.css" />
+    <%-include('partials/headcontent.ejs')%>
+    <title>Book Rooms</title>
+</head>
+<body>
+  <%-include('partials/header.ejs')%>
+  <div id="current-balance" style="display: none"><%=balance%></div>
+  <h2 id="header">Booking Form</h2>
+<!--  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 form-wrapper container">-->
+<!--  <form method="post" action="" id="book-rooms" novalidate>-->
+<!--      <div class="form-group">-->
+<!--          <label for="arrival-time">Arrival Time : </label>-->
+<!--          <input type="datetime-local" id="arrival-time" name="arrival-time" class="form-control"/>-->
+<!--          <div class="form-error"></div>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--          <label for="dep-time">Departure Time : </label>-->
+<!--          <input type="datetime-local" id="dep-time" name="dep-time" class="form-control"/>-->
+<!--          <div class="form-error"></div>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--          <label>Bill(ICR) : </label>-->
+<!--          <input type="number" id="total-price" name='price' value="0" class="form-control"/>-->
+<!--          <div class="form-error"></div>-->
+<!--      </div>-->
+<!--      <button id="submit" class="btn btn-lg">Confirm Booking</button>-->
+<!--  </form>-->
+<!--      </div>-->
+  <div id="hide-form">
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 form-wrapper container" id="date-container">
+      <label for="a-date">Arrival Time</label>
+      <input type="datetime-local" id="a-date" class="form-control"/>
+      <br />
+      <label for="d-date">Departure Time</label>
+      <input type="datetime-local" id="d-date" class="form-control"/>
+      <br />
+  </div>
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 form-wrapper container" id="rooms">
+      <div id="rooms-color-container" style="justify-content: center">
+          <div class="rooms golden">Golden</div>
+          <div class="rooms silver">Silver</div>
+          <div class="rooms platinum">Platinum</div>
+      </div>
+      <div id="rooms-container">
+       <div class="rooms golden">101</div>
+       <div class="rooms silver">102</div>
+       <div class="rooms platinum">103</div>
+       <div class="rooms golden">104</div>
+       <div class="rooms silver">105</div>
+       <div class="rooms platinum">106</div>
+      </div>
+
+  </div>
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 form-wrapper container" style="text-align: center">
+      <button id="book-now" class="btn btn-lg custom-btn" >Book</button>
+  </div>
+  </div>
+  <div id="confirm" class="col-xs-12 col-sm-8 col-md-6 col-lg-4 form-wrapper container">
+      Confirmed Rooms : <div id="confirm-rooms" class="confirmation">101,102</div>
+      <br />
+      Arrival Time : <div id="arrival-time" class="confirmation">JEEL</div>
+      <br />
+      Departure Time : <div id="dep-time" class="confirmation">JEEL</div>
+      <br />
+      Total Price : <div id="price" class="confirmation">3</div>
+      <br />
+      <button id="confirm-booking" class="btn btn-lg custom-btn">Confirm</button>
+      <button id="cancel-booking" class="btn btn-lg custom-btn">Cancel</button>
+  </div>
+
+  <%-include('partials/footer.ejs')%>
+  <script src="js/book-rooms-form.js"></script>
+</body>
+</html>

@@ -7,11 +7,13 @@ const paymentRoute = require("./routes/payment");
 const session = require("express-session");
 const passport = require('passport');
 const flash = require('connect-flash');
+const roomRoutes = require('./routes/rooms');
 
 const url = encodeURI("mongodb+srv://Jeel:Jeel@@2308@cluster0-erkx1.mongodb.net/test?retryWrites=true&w=majority");
 mongoose.connect(url, {
     useNewUrlParser : true,
-    useUnifiedTopology : true
+    useUnifiedTopology : true,
+    useFindAndModify: false
 });
 
 mongoose.connection.once('open',function () {
@@ -40,9 +42,11 @@ app.use(function (req,res,next) {
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static("assets"));
+app.use("/appliances",express.static("assets"));
 app.use(homeRoutes);
 app.use(membershipRoutes);
 app.use(paymentRoute);
+app.use(roomRoutes);
 
 app.listen(3000,()=>{
     console.log("server has started on port 3000");

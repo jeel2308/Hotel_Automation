@@ -6,7 +6,20 @@ const BookingSchema = new Schema({
        type : String,
        required : true
    },
-    roomType : {
+    typeARooms : {
+       type : Number,
+    },
+    typeBRooms : {
+       type : Number,
+    },
+    typeCRooms : {
+       type : Number,
+    },
+    arrivalTime : {
+       type : String,
+        required : true
+    },
+    depTime : {
        type : String,
         required : true
     }

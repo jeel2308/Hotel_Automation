@@ -1,3 +1,15 @@
 #rooms_container {
     margin : 110px auto;
 }
+
+#booking-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+#activate-now,#depart {
+    background-color: #4ca1af;
+    width: 100%;
+    color: white;
+    margin-bottom: 10px;
+}
