@@ -13,29 +13,30 @@
     <div id="room_container" class="container">
         <div class="row">
             <div class="room col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div>Type A</div>
+                <div class="abt-rooms">Golden Room</div>
                 <img src="images/room-1.jpg" alt="room_name" />
-                <button class="book_room_btn" data-price="1">Book Room 1 ICR</button>
+                <div class="book_room_btn abt-rooms" data-price="1">Price : 1 ICR</div>
             </div>
 
             <div class="room col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div>Type B</div>
+                <div class="abt-rooms">Silver Room</div>
                 <img src="images/room-2.jpg" alt="room_name" />
-                <button class="book_room_btn" data-price="2">Book Room 2 ICR</button>
+                <div class="book_room_btn abt-rooms" data-price="2">Price : 2 ICR</div>
             </div>
 
             <div class="room col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div>Type C</div>
+                <div class="abt-rooms">Platinum Room</div>
                 <img src="images/room-3.jpg" alt="room_name" />
-                <button class="book_room_btn" data-price="3">Book Room 3 ICR</button>
+                <div class="book_room_btn abt-rooms" data-price="3">Price : 3 ICR</div>
             </div>
         </div>
     </div>
-    <form method="post" id="book-room" action="" novalidate style="display : none">
-        <label><input type="text" name="price" id="price"/></label>
-        <label><input type="text" name="roomType" id="roomType"/></label>
-        <button id="submit">Submit</button>
-    </form>
+    <a href="/book-rooms" id="book-rooms-btn"><button class="btn btn-lg">Book Rooms</button></a>
+<!--    <form method="post" id="book-room" action="" novalidate style="display : none">-->
+<!--        <label><input type="text" name="price" id="price"/></label>-->
+<!--        <label><input type="text" name="roomType" id="roomType"/></label>-->
+<!--        <button id="submit">Submit</button>-->
+<!--    </form>-->
     <br><br><br>
     <%-include('partials/footer.ejs')%>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

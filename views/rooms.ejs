@@ -13,16 +13,34 @@
         <%if (!roomTypes.length){%>
             <h2 style="color: crimson;">No rooms are booked</h2>
         <% }else{%>
-            <%roomTypes.forEach(function(room,index){%>
-            <div style="display: block;"></div>
-            <span style="font-weight: bold; font-size: 2.5em; color: crimson;"><%=index + 1%></span>
-            <span style="font-weight: bold; font-size: 2.5em; color: crimson;"><%=room%></span>
-            <a href="/appliances" style="font-size: 2.5em; text-decoration: none; margin-left: 2em; color: #4CA1AF;">Go to room controls --></a>
+         <div id="booking-container">
+             <div id="left">
+                 <h2>Arrival Time : <span id="arrival-time"><%=arrivalTime%></span></h2>
+                 <h2>Departure Time : <span id="dep-time"><%=depTime%></span></h2>
+             </div>
+             <div>
+               <div id="status" style="display: none"><%=arrived%></div>
+               <button id="activate-now" class="btn btn-lg">Activate Now</button>
+                 <a href="/checkout"><button id="depart" class="btn btn-lg">Checkout Now</button></a>
+             </div>
+         </div>
+            <div id="booking-warning"></div>
+            <h2 id="remaining-arrival-time"></h2>
+            <h2 id="remaining-dep-time"></h2>
+            <hr style="border-top: 4px solid black;">
+
+
+            <%roomTypes.forEach(function(room){%>
+
+                <div style="display: block;"></div>
+                <span style="font-weight: bold; font-size: 2.5em; color: crimson;">Room No <%=room%></span>
+               <a href="/appliances/<%=room%>" style="font-size: 2.5em; text-decoration: none; margin-left: 2em; color: #4CA1AF;display: none" class="appliance-link">Go to room controls --></a>
             <%})%>
         <%}%>
     </div>
 
     <%-include('partials/footer.ejs')%>
+    <script src="js/rooms.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

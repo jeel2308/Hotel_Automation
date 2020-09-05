@@ -1,6 +1,6 @@
  async function changeImage1() {
     var image = document.getElementById('bulb1');
-    const ToggleSwitchPromise = fetch('/switch/1');
+    const ToggleSwitchPromise = fetch('/switch/' + roomNo +'/1');
     try{
         await ToggleSwitchPromise;
     }
@@ -20,7 +20,7 @@
 }
 async function changeImage2() {
     var image = document.getElementById('bulb2');
-    const ToggleSwitchPromise = fetch('/switch/2');
+    const ToggleSwitchPromise = fetch('/switch/' + roomNo +'/2');
     try{
         await ToggleSwitchPromise;
     }
@@ -39,7 +39,7 @@ async function changeImage2() {
 }
 async function changeImage3() {
     var image = document.getElementById('bulb3');
-    const ToggleSwitchPromise = fetch('/switch/3');
+    const ToggleSwitchPromise = fetch('/switch/' + roomNo +'/3');
     try{
         await ToggleSwitchPromise;
     }
@@ -103,7 +103,7 @@ async function changeImage3() {
 
 function handleFanState(level){
     (async function(){
-        const fanPromise = fetch('/fan/1/' + level);
+        const fanPromise = fetch('/fan/1/' + roomNo + '/' + level);
         try{
             await fanPromise;
         }

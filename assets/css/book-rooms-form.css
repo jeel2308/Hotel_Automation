@@ -1,0 +1,64 @@
+#header {
+    text-align: center;
+}
+
+.custom-btn {
+    background-color: #4ca1af !important;
+    width: 200px;
+    color: white !important;
+    margin-bottom: 30px;
+}
+
+#confirm-booking,#cancel-booking {
+    width : 48%;
+}
+
+.container {
+    max-width: 50% !important;
+}
+
+#rooms-container,#rooms-color-container {
+    display: flex;
+    justify-content: center;
+}
+
+#rooms-container .rooms{
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height : 50px;
+}
+
+.confirmation {
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px 2.5px;
+}
+
+.selected {
+    border : 5px solid black;
+}
+
+.disabled {
+    border : 5px solid red;
+    cursor : not-allowed !important;
+    /*pointer-events: none;*/
+}
+
+.rooms {
+    color : black;
+    padding : 15px;
+    margin : 10px;
+}
+
+.golden {
+    background-color: rgba(215,215,0,1);
+}
+
+.silver {
+    background-color: rgba(192,192,192,1);
+}
+
+.platinum {
+    background-color: green;
+}

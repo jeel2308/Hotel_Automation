@@ -1,5 +1,27 @@
 #room_container {
     display: flex;
+    justify-content: center;
+}
+
+.abt-rooms {
+    text-align: center;
+    font-weight: bold;
+}
+
+#book-rooms-btn {
+    left : 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    margin-top : 20px;
+    position: relative;
+    text-decoration: none;
+}
+
+#book-rooms-btn button{
+    background-color: #4ca1af;
+    width: 100%;
+    color: white;
+    margin-bottom: 30px;
 }
 
 .room {

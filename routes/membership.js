@@ -42,7 +42,7 @@ async function addUser(req,res) {
         value.privateKey = await bcrypt.hash(value.privateKey,pKeySalt);
         const user = new User(value);
         await user.save();
-        await addEthereumUser(owner,value.publicKey);
+        // await addEthereumUser(owner,value.publicKey);
         req.flash("success_msg","You are registered");
         res.redirect("/sign-in");
     }
@@ -71,8 +71,8 @@ async function addUser(req,res) {
 async function showProfile(req,res) {
     try {
         if (req.isAuthenticated()) {
-            let balance = await balanceOf(req.user.publicKey);
-            // let balance = 5;
+            // let balance = await balanceOf(req.user.publicKey);
+            let balance = 5;
             res.render('profile', {
                 balance, username: req.user.username, loggedIn: true,email : req.user.email
             });
